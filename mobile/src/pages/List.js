@@ -22,11 +22,7 @@ export default function List(){
         <SafeAreaView style = {styles.container}>
                 <Image style ={styles.logo} source = {logo}/>
                 <ScrollView>
-                    {techs.map(tech => 
-                        {
-                            return <SpotList key = {tech} tech ={tech} />
-                        }
-                    )}
+                    {techs.sort().map(tech => { return <SpotList key = {tech} tech ={tech} />})}
                 </ScrollView>
         </SafeAreaView>
     );
