@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Ipconfig = require('../config/ipConfig');
+const config = require('../config/config');
 
 const SpotSchema = new mongoose.Schema({
     thumbnail: String,
@@ -18,7 +18,7 @@ const SpotSchema = new mongoose.Schema({
 
 SpotSchema.virtual('thumbnail_url').get(function(){
     if(this.thumbnail)
-    return `${Ipconfig.Ip}/files/${this.thumbnail}`;
+    return `${config.Ip}/files/${this.thumbnail}`;
 });
 
 module.exports = mongoose.model("Spot", SpotSchema);
